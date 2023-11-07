@@ -1,9 +1,8 @@
 ﻿using MathLearner.Domain.Repositories;
 using Microsoft.EntityFrameworkCore;
-using System;
 using System.Linq.Expressions;
 
-namespace MathLearner.PersistenceDatabaseEF.Repositories
+namespace MathLearner.PersistenceCoreEF.Repositories
 {
     public class Repository<T> : IRepository<T> where T : class
     {

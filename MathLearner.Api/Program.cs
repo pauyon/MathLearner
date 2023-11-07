@@ -1,8 +1,8 @@
 using MathLearner.Api.Services.AuthService;
 using MathLearner.Domain.Repositories;
-using MathLearner.PersistenceDatabaseEF;
-using MathLearner.PersistenceDatabaseEF.Mappings;
-using MathLearner.PersistenceDatabaseEF.Repositories;
+using MathLearner.PersistenceCoreEF;
+using MathLearner.PersistenceCoreEF.Mappings;
+using MathLearner.PersistenceCoreEF.Repositories;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);

@@ -1,7 +1,7 @@
 ﻿using MathLearner.Domain.Dtos;
 using MathLearner.Domain.Entities;
 using MathLearner.Domain.Models;
-using MathLearner.PersistenceDatabaseEF;
+using MathLearner.PersistenceCoreEF;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;

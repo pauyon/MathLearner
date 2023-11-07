@@ -15,9 +15,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MathLearner.Api", "MathLear
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MathLearner.Domain", "MathLearner.Domain\MathLearner.Domain.csproj", "{BCEC5DE5-CF2F-4EA5-A341-40FC1A6838E2}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MathLearner.PersistenceDatabaseEF", "MathLearner.DataAccess\MathLearner.PersistenceDatabaseEF.csproj", "{D0A32BE7-8267-4364-A300-9870DF435218}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MathLearnerWasmApp", "MathLearner.Client\MathLearnerWasmApp.csproj", "{B1C837C0-73F4-4055-98F1-8E08F824C3FB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MathLearner.PersistenceCoreEF", "MathLearner.PersistenceCoreEF\MathLearner.PersistenceCoreEF.csproj", "{D1FD2441-A177-4699-8005-649BB7E04D7D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,14 +33,14 @@ Global
 		{BCEC5DE5-CF2F-4EA5-A341-40FC1A6838E2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BCEC5DE5-CF2F-4EA5-A341-40FC1A6838E2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BCEC5DE5-CF2F-4EA5-A341-40FC1A6838E2}.Release|Any CPU.Build.0 = Release|Any CPU
-		{D0A32BE7-8267-4364-A300-9870DF435218}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{D0A32BE7-8267-4364-A300-9870DF435218}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{D0A32BE7-8267-4364-A300-9870DF435218}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{D0A32BE7-8267-4364-A300-9870DF435218}.Release|Any CPU.Build.0 = Release|Any CPU
 		{B1C837C0-73F4-4055-98F1-8E08F824C3FB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{B1C837C0-73F4-4055-98F1-8E08F824C3FB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B1C837C0-73F4-4055-98F1-8E08F824C3FB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B1C837C0-73F4-4055-98F1-8E08F824C3FB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D1FD2441-A177-4699-8005-649BB7E04D7D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D1FD2441-A177-4699-8005-649BB7E04D7D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D1FD2441-A177-4699-8005-649BB7E04D7D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D1FD2441-A177-4699-8005-649BB7E04D7D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -48,8 +48,8 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{0A85569A-804A-49AE-A35A-0F5D1CE633D2} = {21AEC6D8-E90C-4D82-AC9F-1891AF9F4069}
 		{BCEC5DE5-CF2F-4EA5-A341-40FC1A6838E2} = {92507737-7000-4DBB-BAF0-C2ED07450E85}
-		{D0A32BE7-8267-4364-A300-9870DF435218} = {6C4157DA-F2CD-4B13-8C47-51553C6E2F5F}
 		{B1C837C0-73F4-4055-98F1-8E08F824C3FB} = {3568410E-5464-45C7-9601-E36FAA0E7B5B}
+		{D1FD2441-A177-4699-8005-649BB7E04D7D} = {6C4157DA-F2CD-4B13-8C47-51553C6E2F5F}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {FAEC7D2E-C05E-4431-8D2A-667FB9056D67}

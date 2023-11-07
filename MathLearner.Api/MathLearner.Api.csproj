@@ -24,8 +24,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\MathLearner.DataAccess\MathLearner.PersistenceDatabaseEF.csproj" />
     <ProjectReference Include="..\MathLearner.Domain\MathLearner.Domain.csproj" />
+    <ProjectReference Include="..\MathLearner.PersistenceCoreEF\MathLearner.PersistenceCoreEF.csproj" />
   </ItemGroup>
 
   <ItemGroup>

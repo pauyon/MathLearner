@@ -1,6 +1,6 @@
 ﻿using MathLearner.Domain.Repositories;
 
-namespace MathLearner.PersistenceDatabaseEF.Repositories
+namespace MathLearner.PersistenceCoreEF.Repositories
 {
     public class UnitOfWork : IUnitOfWork
     {

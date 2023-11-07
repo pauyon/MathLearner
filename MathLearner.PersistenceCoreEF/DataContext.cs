@@ -1,7 +1,7 @@
 ﻿using MathLearner.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 
-namespace MathLearner.PersistenceDatabaseEF
+namespace MathLearner.PersistenceCoreEF
 {
     public class DataContext : DbContext
     {
@@ -13,13 +13,13 @@ namespace MathLearner.PersistenceDatabaseEF
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Role>().HasData(
-                    new Role { Id = 1, Name = "Admin", IsActive = true },
-                    new Role { Id = 2, Name = "Student", IsActive = true }
+                    new Role() { Id = 1, Name = "Admin", Description = "Admin", IsActive = true },
+                    new Role() { Id = 2, Name = "Student", Description = "Student", IsActive = true }
                 );
 
             modelBuilder.Entity<User>().HasData(
-                new User { Id = 1, Username = "pauyon", Email = "pauyon@test.com" },
-                new User { Id = 2, Username = "jsalmeron", Email = "jsalmeron@test.com" }
+                    new User() { Id = 1, Username = "pauyon", Email = "pauyon@test.com", IsActive = true },
+                    new User() { Id = 2, Username = "jsalmeron", Email = "jsalmeron@test.com", IsActive = true }
                 );
         }
     }

@@ -2,7 +2,7 @@
 using MathLearner.Domain.Dtos;
 using MathLearner.Domain.Entities;
 
-namespace MathLearner.PersistenceDatabaseEF.Mappings
+namespace MathLearner.PersistenceCoreEF.Mappings
 {
     public class MappingConfig : Profile
     {
