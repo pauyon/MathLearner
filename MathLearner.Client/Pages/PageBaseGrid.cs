@@ -14,5 +14,10 @@ namespace MathLearnerWasmApp.Pages
         {
             PageTitle = typeof(TEntity).Name.Pluralize();
         }
+
+        protected bool IsActionDisabled()
+        {
+            return IsGridLoading || IsPageLoading;
+        }
     }
 }

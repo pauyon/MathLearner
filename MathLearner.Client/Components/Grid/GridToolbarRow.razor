@@ -1,13 +1,16 @@
 ﻿
 <MudStack Row>
-    <MudButton OnClick="Refresh" Variant="@Variant.Filled" Color="Color.Secondary">Refresh</MudButton>
-    <MudButton OnClick="New" Variant="@Variant.Filled" Color="Color.Success">New</MudButton>
+    <MudButton OnClick="Refresh" Variant="@Variant.Filled" Color="Color.Secondary" Disabled="@IsDisabled">Refresh</MudButton>
+    <MudButton OnClick="New" Variant="@Variant.Filled" Color="Color.Success" Disabled="@IsDisabled">New</MudButton>
 </MudStack>
 
 @code {
 
     [Parameter]
     public EventCallback RefreshCallback { get; set; }
+
+    [Parameter]
+    public bool IsDisabled { get; set; }
 
     [Parameter]
     public EventCallback NewCallback { get; set; }

@@ -6,7 +6,7 @@
     <MainContent>
         <MudDataGrid Items="@Items" Elevation="10" Loading="IsGridLoading">
             <ToolBarContent>
-                <GridToolbarRow RefreshCallback="RefreshData" NewCallback="@(() => NavigateToCreateOrEdit(null))" />
+                <GridToolbarRow RefreshCallback="RefreshData" NewCallback="@(() => NavigateToCreateOrEdit(null))" IsDisabled="@IsActionDisabled()" />
             </ToolBarContent>
             <Columns>
                 <PropertyColumn Property="x => x.Id" />
@@ -17,7 +17,7 @@
                         <ActiveChip IsActive="@context.Item.IsActive" />
                     </CellTemplate>
                 </TemplateColumn>
-                <GridCrudColumn TEntity="Role" EditCallback="NavigateToCreateOrEdit" />
+                <GridCrudColumn TEntity="Role" EditCallback="NavigateToCreateOrEdit" IsDisabled="@IsActionDisabled()" />
             </Columns>
         </MudDataGrid>
     </MainContent>

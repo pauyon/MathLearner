@@ -3,8 +3,8 @@
 <TemplateColumn T="TEntity" CellClass="d-flex justify-end" HeaderClass="d-flex justify-end" Title="Actions">
     <CellTemplate>
         <MudStack Row>
-            <MudButton OnClick="@(() => Edit(context.Item))" Variant="@Variant.Filled" Color="Color.Info">Edit</MudButton>
-            <MudButton Variant="@Variant.Filled" Color="Color.Error">Delete</MudButton>
+            <MudButton OnClick="@(() => Edit(context.Item))" Variant="@Variant.Filled" Color="Color.Info" Disabled="@IsDisabled">Edit</MudButton>
+            <MudButton Variant="@Variant.Filled" Color="Color.Error" Disabled="@IsDisabled">Delete</MudButton>
         </MudStack>
     </CellTemplate>
 </TemplateColumn>
@@ -12,6 +12,9 @@
 @code {
     [Parameter]
     public EventCallback<TEntity> EditCallback { get; set; }
+
+    [Parameter]
+    public bool IsDisabled { get; set; }
 
     private async Task Edit(TEntity? entity)
     {
