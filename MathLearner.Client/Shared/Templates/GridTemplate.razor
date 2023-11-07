@@ -9,7 +9,7 @@
         </MudItem>
         @if (MainContent != null)
         {
-            @if (!IsLoading)
+            @if (!IsPageLoading)
             {
                 <MudItem xs="12" md="12" lg="12">
                     @MainContent
@@ -25,7 +25,7 @@
 
 @code {
     [Parameter]
-    public bool IsLoading { get; set; } = true;
+    public bool IsPageLoading { get; set; } = true;
 
     [Parameter]
     public string PageTitle { get; set; } = string.Empty;

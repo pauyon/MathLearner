@@ -1,0 +1,24 @@
+﻿
+<MudStack Row>
+    <MudButton OnClick="Refresh" Variant="@Variant.Filled" Color="Color.Secondary">Refresh</MudButton>
+    <MudButton OnClick="New" Variant="@Variant.Filled" Color="Color.Success">New</MudButton>
+</MudStack>
+
+@code {
+
+    [Parameter]
+    public EventCallback RefreshCallback { get; set; }
+
+    [Parameter]
+    public EventCallback NewCallback { get; set; }
+
+    private void Refresh()
+    {
+        RefreshCallback.InvokeAsync();
+    }
+
+    private void New()
+    {
+        NewCallback.InvokeAsync();
+    }
+}

@@ -1,35 +1,52 @@
 ﻿@page "/application/roles"
+@inherits PageBase
 @inject IRoleService RoleService
+@inject NavigationManager NavigationManager
 
 <PageTitle>Roles</PageTitle>
 
-<GridTemplate PageTitle="@(typeof(Roles).Name)" IsLoading="@(RoleList == null)">
+<GridTemplate PageTitle="@PageTitle" IsPageLoading="@IsPageLoading">
     <MainContent>
-        <MudDataGrid Items="@RoleList" Elevation="10">
+        <MudDataGrid Items="@_roleList" Elevation="10" Loading="_isGridLoading">
+            <ToolBarContent>
+                <GridToolbarRow RefreshCallback="RefreshData" NewCallback="@(() => NavigateToCreateOrEdit(null))" />
+            </ToolBarContent>
             <Columns>
                 <PropertyColumn Property="x => x.Id" />
                 <PropertyColumn Property="x => x.Name" />
                 <PropertyColumn Property="x => x.Description" />
-                <PropertyColumn Property="x => x.IsActive" />
-                <TemplateColumn CellClass="d-flex justify-end" Title="Actions">
+                <TemplateColumn Title="Active" SortBy="x => x.IsActive">
                     <CellTemplate>
-                        <MudStack Row>
-                            <MudButton Size="@Size.Small" Variant="@Variant.Filled" Color="Color.Info">Edit</MudButton>
-                            <MudButton Size="@Size.Small" Variant="@Variant.Filled" Color="Color.Error">Delete</MudButton>
-                        </MudStack>
+                        <ActiveChip IsActive="@context.Item.IsActive" />
                     </CellTemplate>
                 </TemplateColumn>
+                <GridCrudColumn TEntity="Role" />
             </Columns>
         </MudDataGrid>
     </MainContent>
 </GridTemplate>
 
 @code {
-    List<Role>? RoleList;
+    private List<Role>? _roleList;
+    private bool _isGridLoading;
 
     protected override async Task OnInitializedAsync()
     {
+        PageTitle = typeof(Roles).Name;
         base.OnInitialized();
-        RoleList = await RoleService.GetAll();
+        await RefreshData();
+        IsPageLoading = false;
+    }
+
+    private async Task RefreshData()
+    {
+        _isGridLoading = true;
+        _roleList = await RoleService.GetAll();
+        _isGridLoading = false;
+    }
+
+    private void NavigateToCreateOrEdit(Role? role)
+    {
+        NavigationManager.NavigateTo($"/applicaiton/roles/{role?.Id}");
     }
 }

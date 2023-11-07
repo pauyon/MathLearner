@@ -7,6 +7,8 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Components\ActiveChip.razor~RFf98b656.TMP" />
+    <None Remove="Components\Grid\GridToolbarRow.razor~RFfaf5da7.TMP" />
     <None Remove="Pages\Application\QuizBuilder.razor~RFd17d287.TMP" />
     <None Remove="Shared\Templates\GridTemplate.razor~RFd1c4ff1.TMP" />
     <None Remove="Shared\Templates\GridTemplate.razor~RFd1dfeba.TMP" />

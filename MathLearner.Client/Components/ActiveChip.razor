@@ -1,0 +1,13 @@
+﻿@if (IsActive)
+{
+    <MudChip Color="Color.Success" Size="Size.Small">Active</MudChip>
+}
+else
+{
+    <MudChip Color="Color.Error" Size="Size.Small">Not Active</MudChip>
+}
+
+@code {
+    [Parameter]
+    public bool IsActive { get; set; }
+}
