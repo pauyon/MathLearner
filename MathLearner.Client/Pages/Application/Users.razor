@@ -4,7 +4,7 @@
 
 <GridTemplate PageTitle="@PageTitle" IsPageLoading="@IsPageLoading">
     <MainContent>
-        <MudDataGrid Items="@UserList" Elevation="10" Loading="@_gridIsLoading">
+        <MudDataGrid Items="@UserList" Elevation="10" Loading="@_isGridLoading">
             <ToolBarContent>
                 <GridToolbarRow RefreshCallback="RefreshData" NewCallback="@(() => NavigateToCreateOrEdit(null))" />
             </ToolBarContent>
