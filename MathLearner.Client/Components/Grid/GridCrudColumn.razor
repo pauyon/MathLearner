@@ -3,12 +3,18 @@
 <TemplateColumn T="TEntity" CellClass="d-flex justify-end" HeaderClass="d-flex justify-end" Title="Actions">
     <CellTemplate>
         <MudStack Row>
-            <MudButton Variant="@Variant.Filled" Color="Color.Info">Edit</MudButton>
+            <MudButton OnClick="@(() => Edit(context.Item))" Variant="@Variant.Filled" Color="Color.Info">Edit</MudButton>
             <MudButton Variant="@Variant.Filled" Color="Color.Error">Delete</MudButton>
         </MudStack>
     </CellTemplate>
 </TemplateColumn>
 
 @code {
+    [Parameter]
+    public EventCallback<TEntity> EditCallback { get; set; }
 
+    private async Task Edit(TEntity? entity)
+    {
+        await EditCallback.InvokeAsync(entity);
+    }
 }

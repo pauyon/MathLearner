@@ -1,7 +1,6 @@
 ﻿@page "/application/users"
 @inherits PageBase
 @inject IUserService UserService
-@inject NavigationManager NavigationManager
 
 <GridTemplate PageTitle="@PageTitle" IsPageLoading="@IsPageLoading">
     <MainContent>
@@ -18,7 +17,7 @@
                         <ActiveChip IsActive="@context.Item.IsActive" />
                     </CellTemplate>
                 </TemplateColumn>
-                <GridCrudColumn TEntity="User" />
+                <GridCrudColumn TEntity="User" EditCallback="NavigateToCreateOrEdit" />
             </Columns>
         </MudDataGrid>
     </MainContent>
@@ -26,7 +25,7 @@
 
 @code {
     private List<User>? UserList;
-    private bool _gridIsLoading;
+    private bool _isGridLoading;
 
     protected override async Task OnInitializedAsync()
     {
@@ -38,13 +37,13 @@
 
     private async Task RefreshData()
     {
-        _gridIsLoading = true;
+        _isGridLoading = true;
         UserList = await UserService.GetAll();
-        _gridIsLoading = false;
+        _isGridLoading = false;
     }
 
     private void NavigateToCreateOrEdit(User? user)
     {
-        NavigationManager.NavigateTo($"/applicaiton/users/{user?.Id}");
+        NavigationManager?.NavigateTo($"/application/users/details/{user?.Id}");
     }
 }

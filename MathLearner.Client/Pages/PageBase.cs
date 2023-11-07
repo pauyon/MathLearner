@@ -4,6 +4,8 @@ namespace MathLearnerWasmApp.Pages
 {
     public class PageBase : ComponentBase
     {
+        [Inject]
+        protected NavigationManager? NavigationManager { get; set; }
         protected string PageTitle = string.Empty;
         protected bool IsPageLoading = true;
     }

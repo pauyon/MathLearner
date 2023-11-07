@@ -1,9 +1,6 @@
 ﻿@page "/application/roles"
 @inherits PageBase
 @inject IRoleService RoleService
-@inject NavigationManager NavigationManager
-
-<PageTitle>Roles</PageTitle>
 
 <GridTemplate PageTitle="@PageTitle" IsPageLoading="@IsPageLoading">
     <MainContent>
@@ -20,7 +17,7 @@
                         <ActiveChip IsActive="@context.Item.IsActive" />
                     </CellTemplate>
                 </TemplateColumn>
-                <GridCrudColumn TEntity="Role" />
+                <GridCrudColumn TEntity="Role" EditCallback="NavigateToCreateOrEdit" />
             </Columns>
         </MudDataGrid>
     </MainContent>
@@ -47,6 +44,6 @@
 
     private void NavigateToCreateOrEdit(Role? role)
     {
-        NavigationManager.NavigateTo($"/application/roles/{role?.Id}");
+        NavigationManager?.NavigateTo($"/application/roles/details/{role?.Id}");
     }
 }
