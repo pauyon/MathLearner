@@ -1,10 +1,10 @@
 ﻿@page "/application/roles"
-@inherits PageBase
+@inherits PageBaseGrid<Role>
 @inject IRoleService RoleService
 
 <GridTemplate PageTitle="@PageTitle" IsPageLoading="@IsPageLoading">
     <MainContent>
-        <MudDataGrid Items="@_roleList" Elevation="10" Loading="_isGridLoading">
+        <MudDataGrid Items="@Items" Elevation="10" Loading="IsGridLoading">
             <ToolBarContent>
                 <GridToolbarRow RefreshCallback="RefreshData" NewCallback="@(() => NavigateToCreateOrEdit(null))" />
             </ToolBarContent>
@@ -24,22 +24,18 @@
 </GridTemplate>
 
 @code {
-    private List<Role>? _roleList;
-    private bool _isGridLoading;
 
     protected override async Task OnInitializedAsync()
     {
-        PageTitle = typeof(Roles).Name;
         base.OnInitialized();
         await RefreshData();
-        IsPageLoading = false;
     }
 
     private async Task RefreshData()
     {
-        _isGridLoading = true;
-        _roleList = await RoleService.GetAll();
-        _isGridLoading = false;
+        IsGridLoading = true;
+        Items = await RoleService.GetAll();
+        IsGridLoading = false;
     }
 
     private void NavigateToCreateOrEdit(Role? role)

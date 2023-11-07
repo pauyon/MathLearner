@@ -1,10 +1,10 @@
 ﻿@page "/application/users"
-@inherits PageBase
+@inherits PageBaseGrid<User>
 @inject IUserService UserService
 
 <GridTemplate PageTitle="@PageTitle" IsPageLoading="@IsPageLoading">
     <MainContent>
-        <MudDataGrid Items="@UserList" Elevation="10" Loading="@_isGridLoading">
+        <MudDataGrid Items="@Items" Elevation="10" Loading="@IsGridLoading">
             <ToolBarContent>
                 <GridToolbarRow RefreshCallback="RefreshData" NewCallback="@(() => NavigateToCreateOrEdit(null))" />
             </ToolBarContent>
@@ -24,22 +24,17 @@
 </GridTemplate>
 
 @code {
-    private List<User>? UserList;
-    private bool _isGridLoading;
-
     protected override async Task OnInitializedAsync()
     {
-        PageTitle = typeof(Users).Name;
         base.OnInitialized();
         await RefreshData();
-        IsPageLoading = false;
     }
 
     private async Task RefreshData()
     {
-        _isGridLoading = true;
-        UserList = await UserService.GetAll();
-        _isGridLoading = false;
+        IsGridLoading = true;
+        Items = await UserService.GetAll();
+        IsGridLoading = false;
     }
 
     private void NavigateToCreateOrEdit(User? user)
