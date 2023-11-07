@@ -1,0 +1,15 @@
+﻿@page "/"
+
+<PageTitle>Math Learner</PageTitle>
+
+
+<AuthorizeView>
+    <Authorized>
+        <h1>Welcome, @context.User.Identity.Name!</h1>
+    </Authorized>
+    <NotAuthorized>
+        <h1>Welcome, Guest!</h1>
+    </NotAuthorized>
+</AuthorizeView>
+
+Welcome to Math Learner, a place to learn, practice, and win prizes for your hard work!

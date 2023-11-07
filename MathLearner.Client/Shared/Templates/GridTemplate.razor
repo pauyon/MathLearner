@@ -1,0 +1,35 @@
+﻿@inherits ComponentBase
+
+<PageTitle> Math Learner | @PageTitle</PageTitle>
+
+<MudContainer MaxWidth="MaxWidth.Medium">
+    <MudGrid>
+        <MudItem Class="mt-6" xs="12" md="12" lg="12">
+            <MudText Typo="Typo.h4">@PageTitle</MudText>
+        </MudItem>
+        @if (MainContent != null)
+        {
+            @if (!IsLoading)
+            {
+                <MudItem xs="12" md="12" lg="12">
+                    @MainContent
+                </MudItem>
+            }
+            else
+            {
+                <MudProgressLinear Indeterminate="true" Color="Color.Primary" />
+            }
+        }
+    </MudGrid>
+</MudContainer>
+
+@code {
+    [Parameter]
+    public bool IsLoading { get; set; } = true;
+
+    [Parameter]
+    public string PageTitle { get; set; } = string.Empty;
+
+    [Parameter]
+    public RenderFragment? MainContent { get; set; } = null;
+}

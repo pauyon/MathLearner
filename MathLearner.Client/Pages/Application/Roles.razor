@@ -1,0 +1,35 @@
+﻿@page "/application/roles"
+@inject IRoleService RoleService
+
+<PageTitle>Roles</PageTitle>
+
+<GridTemplate PageTitle="@(typeof(Roles).Name)" IsLoading="@(RoleList == null)">
+    <MainContent>
+        <MudDataGrid Items="@RoleList" Elevation="10">
+            <Columns>
+                <PropertyColumn Property="x => x.Id" />
+                <PropertyColumn Property="x => x.Name" />
+                <PropertyColumn Property="x => x.Description" />
+                <PropertyColumn Property="x => x.IsActive" />
+                <TemplateColumn CellClass="d-flex justify-end" Title="Actions">
+                    <CellTemplate>
+                        <MudStack Row>
+                            <MudButton Size="@Size.Small" Variant="@Variant.Filled" Color="Color.Info">Edit</MudButton>
+                            <MudButton Size="@Size.Small" Variant="@Variant.Filled" Color="Color.Error">Delete</MudButton>
+                        </MudStack>
+                    </CellTemplate>
+                </TemplateColumn>
+            </Columns>
+        </MudDataGrid>
+    </MainContent>
+</GridTemplate>
+
+@code {
+    List<Role>? RoleList;
+
+    protected override async Task OnInitializedAsync()
+    {
+        base.OnInitialized();
+        RoleList = await RoleService.GetAll();
+    }
+}
