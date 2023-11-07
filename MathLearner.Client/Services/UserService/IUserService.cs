@@ -2,8 +2,7 @@
 
 namespace MathLearnerWasmApp.Services.UserService
 {
-    public interface IUserService
+    public interface IUserService : IService<User>
     {
-        Task<List<User>?> GetAll();
     }
 }

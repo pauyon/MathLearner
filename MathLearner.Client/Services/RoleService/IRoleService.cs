@@ -2,8 +2,7 @@
 
 namespace MathLearnerWasmApp.Services.RoleService
 {
-    public interface IRoleService
+    public interface IRoleService : IService<Role>
     {
-        Task<List<Role>?> GetAll();
     }
 }

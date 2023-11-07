@@ -1,6 +1,5 @@
 ﻿@page "/application/users"
 @inherits PageBaseGrid<User>
-@inject IUserService UserService
 
 <GridTemplate PageTitle="@PageTitle" IsPageLoading="@IsPageLoading">
     <MainContent>
@@ -24,18 +23,6 @@
 </GridTemplate>
 
 @code {
-    protected override async Task OnInitializedAsync()
-    {
-        base.OnInitialized();
-        await RefreshData();
-    }
-
-    private async Task RefreshData()
-    {
-        IsGridLoading = true;
-        Items = await UserService.GetAll();
-        IsGridLoading = false;
-    }
 
     private void NavigateToCreateOrEdit(User? user)
     {

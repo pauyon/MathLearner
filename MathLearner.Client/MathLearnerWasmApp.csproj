@@ -11,6 +11,11 @@
     <None Remove="Components\Grid\GridToolbarRow.razor~RFfaf5da7.TMP" />
     <None Remove="Pages\Application\QuizBuilder.razor~RFd17d287.TMP" />
     <None Remove="Pages\PageBaseGrid.cs~RF100ebdf9.TMP" />
+    <None Remove="Services\RoleService\RoleService.cs~RF109a2059.TMP" />
+    <None Remove="Services\RoleService\RoleService.cs~RF111c03d0.TMP" />
+    <None Remove="Services\Service.cs~RF1031b1ca.TMP" />
+    <None Remove="Services\Service.cs~RF1033cbff.TMP" />
+    <None Remove="Services\UserService\UserService.cs~RF110d3ccb.TMP" />
     <None Remove="Shared\Templates\GridTemplate.razor~RFd1c4ff1.TMP" />
     <None Remove="Shared\Templates\GridTemplate.razor~RFd1dfeba.TMP" />
   </ItemGroup>
