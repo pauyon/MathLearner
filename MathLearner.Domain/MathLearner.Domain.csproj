@@ -7,12 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="Repositories\IRepository.cs~RFb771ece.TMP" />
-    <None Remove="Repositories\IRepository.cs~RFbd60369.TMP" />
-    <None Remove="Repositories\IRepository.cs~RFbd93a0a.TMP" />
-  </ItemGroup>
-
-  <ItemGroup>
     <Folder Include="Entities\" />
   </ItemGroup>
 
