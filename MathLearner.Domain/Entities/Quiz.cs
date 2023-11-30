@@ -9,7 +9,7 @@ namespace MathLearner.Domain.Entities
         public int? CorrectAnswers { get; set; }
         public int? IncorrectAnswers { get; set; }
         public int? TotalQuestions { get; set; }
-        public char LetterGrade { get; set; }
-        public bool Completed { get; set; }
+        public char? LetterGrade { get; set; }
+        public bool IsCompleted { get; set; } = false;
     }
 }

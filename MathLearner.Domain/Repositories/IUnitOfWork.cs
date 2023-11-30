@@ -4,6 +4,7 @@
     {
         IUserRepository UserRepository { get; }
         IRoleRepository RoleRepository { get; }
+        IQuizRepository QuizRepository { get; }
         int Save();
     }
 }

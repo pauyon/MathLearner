@@ -6,6 +6,7 @@
         {
             public static readonly string User = "user";
             public static readonly string Role = "role";
+            public static readonly string Quiz = "quiz";
         }
     }
 }

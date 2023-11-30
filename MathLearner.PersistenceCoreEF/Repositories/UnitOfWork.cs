@@ -11,10 +11,12 @@ namespace MathLearner.PersistenceCoreEF.Repositories
             _dbContext = dbContext;
             UserRepository = new UserRepository(dbContext);
             RoleRepository = new RoleRepository(dbContext);
+            QuizRepository = new QuizRepository(dbContext);
         }
 
         public IUserRepository UserRepository { get; private set; }
         public IRoleRepository RoleRepository { get; private set; }
+        public IQuizRepository QuizRepository { get; private set; }
 
         public int Save()
         {
