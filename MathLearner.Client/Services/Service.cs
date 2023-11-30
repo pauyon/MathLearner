@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using System.Text;
 
 namespace MathLearnerWasmApp.Services
 {
@@ -14,9 +15,21 @@ namespace MathLearnerWasmApp.Services
             _controller = controller;
         }
 
-        public Task<TEntity> Add(TEntity entity)
+        public async Task<TEntity> Add(TEntity entity)
         {
-            throw new NotImplementedException();
+            var entityJson = new StringContent(System.Text.Json.JsonSerializer.Serialize(entity), Encoding.UTF8, "application/json");
+
+            var response = await _httpClient.PostAsync($"/api/{_controller}", entityJson);
+
+            if (response.IsSuccessStatusCode)
+            {
+                var content = await response.Content.ReadAsStringAsync();
+                var item = JsonConvert.DeserializeObject<TEntity>(content);
+
+                return item ?? new TEntity();
+            }
+
+            return new TEntity();
         }
 
         public virtual async Task<List<TEntity>> GetAll()

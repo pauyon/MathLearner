@@ -37,10 +37,10 @@ namespace MathLearner.Api.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult<List<Role>>> AddRole(Role role)
+        public async Task<ActionResult<Role>> AddRole(Role role)
         {
-            await _unitOfWork.RoleRepository.Add(role);
-            return Ok();
+            var result = await _unitOfWork.RoleRepository.Add(role);
+            return Ok(result);
         }
 
         [HttpPut("{id}")]

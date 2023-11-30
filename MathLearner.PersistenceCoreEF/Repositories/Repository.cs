@@ -13,10 +13,11 @@ namespace MathLearner.PersistenceCoreEF.Repositories
             _dbContext = dbContext;
         }
 
-        public async Task Add(T entity)
+        public async Task<T> Add(T entity)
         {
             await _dbContext.Set<T>().AddAsync(entity);
             await SaveChanges();
+            return entity;
         }
 
         public async Task AddRange(IEnumerable<T> entities)
