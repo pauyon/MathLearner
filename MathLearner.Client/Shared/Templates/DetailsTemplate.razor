@@ -3,28 +3,26 @@
 <PageTitle> Math Learner | @PageTitle</PageTitle>
 
 <MudContainer MaxWidth="MaxWidth.Medium">
-    <MudCard>
-        <MudCardHeader>
+    <MudGrid>
+        <MudItem Class="mt-6" xs="12" md="12" lg="12">
             <MudText Typo="Typo.h4">@PageTitle</MudText>
-        </MudCardHeader>
-        <MudCardContent>
-            <MudGrid>
-                <MudItem Class="mt-6" xs="12" md="12" lg="12">
-                    @if (MainContent != null)
-                    {
-                        @if (!IsPageLoading)
-                        {
-                            <MudItem xs="12" md="12" lg="12">
-                                @MainContent
-                            </MudItem>
-                        }
-                        else
-                        {
-                            <MudProgressLinear Indeterminate="true" Color="Color.Primary" />
-                        }
-                    }
-                </MudItem>
-            </MudGrid>
-        </MudCardContent>
-    </MudCard>
+        </MudItem>
+        @if (MainContent != null)
+        {
+            <MudItem xs="12" md="12" lg="12">
+                @if (!IsPageLoading)
+                {
+                    <MudCard>
+                        <MudCardContent>
+                            @MainContent
+                        </MudCardContent>
+                    </MudCard>
+                }
+                else
+                {
+                    <MudProgressLinear Indeterminate="true" Color="Color.Primary" />
+                }
+            </MudItem>
+        }
+    </MudGrid>
 </MudContainer>
