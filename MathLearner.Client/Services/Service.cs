@@ -2,7 +2,7 @@
 
 namespace MathLearnerWasmApp.Services
 {
-    public abstract class Service<TEntity> : IService<TEntity> 
+    public abstract class Service<TEntity> : IService<TEntity>
         where TEntity : class, new()
     {
         private readonly HttpClient _httpClient;
@@ -12,6 +12,11 @@ namespace MathLearnerWasmApp.Services
         {
             _httpClient = httpClient;
             _controller = controller;
+        }
+
+        public Task<TEntity> Add(TEntity entity)
+        {
+            throw new NotImplementedException();
         }
 
         public virtual async Task<List<TEntity>> GetAll()
@@ -42,6 +47,11 @@ namespace MathLearnerWasmApp.Services
             }
 
             return new TEntity();
+        }
+
+        public Task<TEntity> Update(TEntity entity)
+        {
+            throw new NotImplementedException();
         }
     }
 }

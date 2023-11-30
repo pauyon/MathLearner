@@ -7,12 +7,19 @@ namespace MathLearnerWasmApp.Pages
         where TEntity : class, new()
     {
         [Parameter]
-        public int EntityId { get; set; }
+        public int? EntityId { get; set; }
 
         [Inject]
         public IService<TEntity>? Service { get; set; }
         protected TEntity? Entity;
         protected bool IsPageLoading;
+        protected bool IsNewEntity
+        {
+            get
+            {
+                return EntityId == null;
+            }
+        }
 
         public PageBaseDetails()
         {
@@ -28,12 +35,24 @@ namespace MathLearnerWasmApp.Pages
         {
             IsPageLoading = true;
 
-            if (Service != null)
+            if (Service != null && !IsNewEntity)
             {
-                Entity = await Service.GetById(EntityId);
+                Entity = await Service.GetById(EntityId.GetValueOrDefault());
             }
 
             IsPageLoading = false;
+        }
+
+        public virtual async Task InsertUpdate(TEntity entity)
+        {
+            if (IsNewEntity)
+            {
+                await Service!.Add(entity);
+            }
+            else
+            {
+                await Service!.Update(entity);
+            }
         }
 
         protected bool IsActionDisabled()
