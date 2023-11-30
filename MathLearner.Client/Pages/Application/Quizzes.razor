@@ -15,7 +15,7 @@
                         <ActiveChip IsActive="@context.Item.IsCompleted" TrueCustomLabel="Completed" FalseCustomLabel="Not Completed" />
                     </CellTemplate>
                 </TemplateColumn>
-                <GridCrudColumn TEntity="Role" EditCallback="NavigateToCreateOrEdit" IsDisabled="@IsActionDisabled()" />
+                <GridCrudColumn TEntity="Quiz" EditCallback="NavigateToCreateOrEdit" IsDisabled="@IsActionDisabled()" />
             </Columns>
         </MudDataGrid>
     </MainContent>
@@ -23,8 +23,8 @@
 
 @code {
 
-    private void NavigateToCreateOrEdit(Role? role)
+    private void NavigateToCreateOrEdit(Quiz? quiz)
     {
-        NavigationManager?.NavigateTo($"/application/roles/details/{role?.Id}");
+        NavigationManager?.NavigateTo($"/application/quizzes/details/{quiz?.Id}");
     }
 }
