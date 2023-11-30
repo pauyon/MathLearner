@@ -10,9 +10,9 @@
             <Columns>
                 <PropertyColumn Property="x => x.Id" />
                 <PropertyColumn Property="x => x.Name" />
-                <TemplateColumn Title="Is Completed" SortBy="x => x.IsCompleted">
+                <TemplateColumn Title="Completed" SortBy="x => x.IsCompleted">
                     <CellTemplate>
-                        <ActiveChip IsActive="@context.Item.IsCompleted" />
+                        <ActiveChip IsActive="@context.Item.IsCompleted" TrueCustomLabel="Completed" FalseCustomLabel="Not Completed" />
                     </CellTemplate>
                 </TemplateColumn>
                 <GridCrudColumn TEntity="Role" EditCallback="NavigateToCreateOrEdit" IsDisabled="@IsActionDisabled()" />

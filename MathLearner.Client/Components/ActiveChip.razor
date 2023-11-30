@@ -1,13 +1,19 @@
 ﻿@if (IsActive)
 {
-    <MudChip Color="Color.Success" Size="Size.Small">Active</MudChip>
+    <MudChip Color="Color.Success" Size="Size.Small">@TrueCustomLabel</MudChip>
 }
 else
 {
-    <MudChip Color="Color.Error" Size="Size.Small">Not Active</MudChip>
+    <MudChip Color="Color.Error" Size="Size.Small">@FalseCustomLabel</MudChip>
 }
 
 @code {
     [Parameter]
     public bool IsActive { get; set; }
+
+    [Parameter]
+    public string TrueCustomLabel { get; set; } = "Active";
+
+    [Parameter]
+    public string FalseCustomLabel { get; set; } = "Not Active";
 }
