@@ -3,7 +3,7 @@
 namespace MathLearnerWasmApp.Services
 {
     public abstract class Service<TEntity> : IService<TEntity> 
-        where TEntity : class
+        where TEntity : class, new()
     {
         private readonly HttpClient _httpClient;
         private readonly string _controller;
@@ -27,6 +27,21 @@ namespace MathLearnerWasmApp.Services
             }
 
             return new List<TEntity>();
+        }
+
+        public virtual async Task<TEntity?> GetById(int id)
+        {
+            var response = await _httpClient.GetAsync($"/api/{_controller}/{id}");
+
+            if (response.IsSuccessStatusCode)
+            {
+                var content = await response.Content.ReadAsStringAsync();
+                var entity = JsonConvert.DeserializeObject<TEntity>(content);
+
+                return entity ?? new TEntity();
+            }
+
+            return new TEntity();
         }
     }
 }

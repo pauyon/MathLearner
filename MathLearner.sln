@@ -17,7 +17,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MathLearner.Domain", "MathL
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MathLearnerWasmApp", "MathLearner.Client\MathLearnerWasmApp.csproj", "{B1C837C0-73F4-4055-98F1-8E08F824C3FB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MathLearner.PersistenceCoreEF", "MathLearner.PersistenceCoreEF\MathLearner.PersistenceCoreEF.csproj", "{D1FD2441-A177-4699-8005-649BB7E04D7D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MathLearner.PersistenceCoreEF", "MathLearner.PersistenceCoreEF\MathLearner.PersistenceCoreEF.csproj", "{D1FD2441-A177-4699-8005-649BB7E04D7D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

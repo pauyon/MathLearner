@@ -1,4 +1,4 @@
-﻿@inherits ComponentBase
+﻿@inherits TemplateBase
 
 <PageTitle> Math Learner | @PageTitle</PageTitle>
 
@@ -22,14 +22,3 @@
         }
     </MudGrid>
 </MudContainer>
-
-@code {
-    [Parameter]
-    public bool IsPageLoading { get; set; } = true;
-
-    [Parameter]
-    public string PageTitle { get; set; } = string.Empty;
-
-    [Parameter]
-    public RenderFragment? MainContent { get; set; } = null;
-}
