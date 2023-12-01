@@ -43,11 +43,11 @@ namespace MathLearner.Api.Controllers
             return Ok(result);
         }
 
-        [HttpPut("{id}")]
-        public async Task<ActionResult<List<Role>>> UpdateRole(Role role)
+        [HttpPut]
+        public async Task<ActionResult<bool>> UpdateRole(Role role)
         {
-            await _unitOfWork.RoleRepository.Update(role);
-            return Ok();
+            var result = await _unitOfWork.RoleRepository.Update(role);
+            return Ok(result);
         }
 
         [HttpDelete("{id}")]

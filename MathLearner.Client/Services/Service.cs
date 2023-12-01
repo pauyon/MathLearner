@@ -62,9 +62,21 @@ namespace MathLearnerWasmApp.Services
             return new TEntity();
         }
 
-        public Task<TEntity> Update(TEntity entity)
+        public async Task<bool> Update(TEntity entity)
         {
-            throw new NotImplementedException();
+            var entityJson = new StringContent(System.Text.Json.JsonSerializer.Serialize(entity), Encoding.UTF8, "application/json");
+
+            var response = await _httpClient.PutAsync($"/api/{_controller}", entityJson);
+
+            if (response.IsSuccessStatusCode)
+            {
+                var content = await response.Content.ReadAsStringAsync();
+                var updated = JsonConvert.DeserializeObject<bool>(content);
+
+                return updated;
+            }
+
+            return false;
         }
     }
 }

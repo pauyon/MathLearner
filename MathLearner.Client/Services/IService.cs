@@ -8,6 +8,6 @@
 
         Task<TEntity> Add(TEntity entity);
 
-        Task<TEntity> Update(TEntity entity);
+        Task<bool> Update(TEntity entity);
     }
 }

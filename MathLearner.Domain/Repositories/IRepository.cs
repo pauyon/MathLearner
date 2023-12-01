@@ -10,7 +10,7 @@ namespace MathLearner.Domain.Repositories
         Task AddRange(IEnumerable<T> entities);
         Task Remove(T entity);
         Task RemoveRange(IEnumerable<T> entities);
-        Task Update(T entity);
+        Task<bool> Update(T entity);
         Task SaveChanges();
     }
 }

@@ -64,10 +64,19 @@ namespace MathLearner.PersistenceCoreEF.Repositories
             await SaveChanges();
         }
 
-        public virtual async Task Update(T entity)
+        public virtual async Task<bool> Update(T entity)
         {
-            _dbContext.Set<T>().Update(entity);
-            await SaveChanges();
+            try
+            {
+                _dbContext.Set<T>().Update(entity);
+                await SaveChanges();
+
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
         }
 
         public async Task SaveChanges()
