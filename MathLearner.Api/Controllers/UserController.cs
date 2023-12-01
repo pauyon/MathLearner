@@ -79,9 +79,9 @@ namespace MathLearner.Api.Controllers
         }
 
         [HttpDelete("{id}")]
-        public async Task<ActionResult<List<User>>> DeleteUser(User user)
+        public async Task<ActionResult<List<User>>> DeleteUser(int id)
         {
-            await _unitOfWork.UserRepository.Remove(user);
+            await _unitOfWork.UserRepository.Delete(id);
             return Ok();
         }
     }

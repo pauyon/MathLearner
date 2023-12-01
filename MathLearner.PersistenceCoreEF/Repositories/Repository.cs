@@ -52,10 +52,19 @@ namespace MathLearner.PersistenceCoreEF.Repositories
             return await query.ToListAsync();
         }
 
-        public async Task Remove(T entity)
+        public async Task<bool> Delete(int id)
         {
-            _dbContext.Set<T>().Remove(entity);
-            await SaveChanges();
+            var entity = _dbContext.Set<T>().Find(id);
+
+            if (entity != null)
+            {
+                _dbContext.Set<T>().Remove(entity);
+                await SaveChanges();
+
+                return true;
+            }
+
+            return false;
         }
 
         public async Task RemoveRange(IEnumerable<T> entities)

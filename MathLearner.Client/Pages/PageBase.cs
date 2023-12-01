@@ -10,7 +10,8 @@ namespace MathLearnerWasmApp.Pages
 
         [Inject]
         protected ISnackbar? Snackbar { get; set; }
-
+        
+        protected string EntityName = string.Empty;
         protected string PageTitle = string.Empty;
         protected string PageArea = string.Empty;
     }

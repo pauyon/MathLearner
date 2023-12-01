@@ -4,7 +4,7 @@
     <CellTemplate>
         <MudStack Row>
             <MudButton OnClick="@(() => Edit(context.Item))" Variant="@Variant.Filled" Color="Color.Info" Disabled="@IsDisabled">Edit</MudButton>
-            <MudButton Variant="@Variant.Filled" Color="Color.Error" Disabled="@IsDisabled">Delete</MudButton>
+            <MudButton OnClick="@(() => Delete(context.Item))" Variant="@Variant.Filled" Color="Color.Error" Disabled="@IsDisabled">Delete</MudButton>
         </MudStack>
     </CellTemplate>
 </TemplateColumn>
@@ -12,6 +12,8 @@
 @code {
     [Parameter]
     public EventCallback<TEntity> EditCallback { get; set; }
+    [Parameter]
+    public EventCallback<TEntity> DeleteCallback { get; set; }
 
     [Parameter]
     public bool IsDisabled { get; set; }
@@ -19,5 +21,10 @@
     private async Task Edit(TEntity? entity)
     {
         await EditCallback.InvokeAsync(entity);
+    }
+
+    private async Task Delete(TEntity entity)
+    {
+        await DeleteCallback.InvokeAsync(entity);
     }
 }

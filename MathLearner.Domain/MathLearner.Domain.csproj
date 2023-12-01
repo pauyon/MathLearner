@@ -7,7 +7,11 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Entities\EntityBase.cs~RFabc1f1a.TMP" />
     <None Remove="Entities\Quiz.cs~RF901e0bf.TMP" />
+    <None Remove="Entities\Quiz.cs~RFabc51a4.TMP" />
+    <None Remove="Entities\Role.cs~RFaae5d50.TMP" />
+    <None Remove="Entities\Role.cs~RFabc7e61.TMP" />
   </ItemGroup>
 
 </Project>

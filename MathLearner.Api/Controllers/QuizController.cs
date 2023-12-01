@@ -51,9 +51,9 @@ namespace MathLearner.Api.Controllers
         }
 
         [HttpDelete("{id}")]
-        public async Task<ActionResult<List<Quiz>>> DeleteQuiz(Quiz quiz)
+        public async Task<ActionResult<List<Quiz>>> DeleteQuiz(int id)
         {
-            await _unitOfWork.QuizRepository.Remove(quiz);
+            await _unitOfWork.QuizRepository.Delete(id);
             return Ok();
         }
     }

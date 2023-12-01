@@ -1,9 +1,10 @@
 ﻿
+using MathLearner.Domain.Entities.Interfaces;
+
 namespace MathLearner.Domain.Entities
 {
-    public class Quiz
+    public class Quiz : EntityBase
     {
-        public int Id { get; set; }
         public string? Name { get; set; }
         public List<Question>? Questions { get; set; }
         public int? CorrectAnswers { get; set; }

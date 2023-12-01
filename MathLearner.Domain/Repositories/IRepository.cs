@@ -8,7 +8,7 @@ namespace MathLearner.Domain.Repositories
         Task<T?> Get(Expression<Func<T, bool>> predicate, bool tracked = true);
         Task<T> Add(T entity);
         Task AddRange(IEnumerable<T> entities);
-        Task Remove(T entity);
+        Task<bool> Delete(int id);
         Task RemoveRange(IEnumerable<T> entities);
         Task<bool> Update(T entity);
         Task SaveChanges();

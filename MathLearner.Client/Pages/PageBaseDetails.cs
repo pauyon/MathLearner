@@ -13,7 +13,6 @@ namespace MathLearnerWasmApp.Pages
         [Inject]
         public IService<TEntity>? Service { get; set; }
         protected TEntity Entity = new();
-        protected string EntityName;
         protected bool IsPageLoading;
         protected bool IsSaved;
 

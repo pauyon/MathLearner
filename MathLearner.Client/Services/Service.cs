@@ -1,10 +1,11 @@
-﻿using Newtonsoft.Json;
+﻿using MathLearner.Domain.Entities.Interfaces;
+using Newtonsoft.Json;
 using System.Text;
 
 namespace MathLearnerWasmApp.Services
 {
     public abstract class Service<TEntity> : IService<TEntity>
-        where TEntity : class, new()
+        where TEntity : class, IEntityBase, new()
     {
         private readonly HttpClient _httpClient;
         private readonly string _controller;
@@ -30,6 +31,21 @@ namespace MathLearnerWasmApp.Services
             }
 
             return new TEntity();
+        }
+
+        public async Task<bool> Delete(TEntity entity)
+        {
+            var response = await _httpClient.DeleteAsync($"/api/{_controller}/{entity.Id}");
+
+            if (response.IsSuccessStatusCode)
+            {
+                var content = await response.Content.ReadAsStringAsync();
+                var isDeleted = JsonConvert.DeserializeObject<bool>(content);
+
+                return isDeleted;
+            }
+
+            return false;
         }
 
         public virtual async Task<List<TEntity>> GetAll()

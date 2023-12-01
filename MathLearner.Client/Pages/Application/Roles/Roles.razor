@@ -16,7 +16,7 @@
                         <ActiveChip IsActive="@context.Item.IsActive" />
                     </CellTemplate>
                 </TemplateColumn>
-                <GridCrudColumn TEntity="Role" EditCallback="NavigateToCreateOrEdit" IsDisabled="@IsActionDisabled()" />
+                <GridCrudColumn TEntity="Role" EditCallback="NavigateToCreateOrEdit" DeleteCallback="DeleteEntity" IsDisabled="@IsActionDisabled()" />
             </Columns>
         </MudDataGrid>
     </MainContent>

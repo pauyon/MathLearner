@@ -1,6 +1,7 @@
 ﻿using Humanizer;
 using MathLearnerWasmApp.Services;
 using Microsoft.AspNetCore.Components;
+using MudBlazor;
 
 namespace MathLearnerWasmApp.Pages
 {
@@ -17,7 +18,8 @@ namespace MathLearnerWasmApp.Pages
 
         public PageBaseGrid()
         {
-            PageTitle = typeof(TEntity).Name.Pluralize();
+            EntityName = typeof(TEntity).Name;
+            PageTitle = EntityName.Pluralize();
         }
 
         protected override async Task OnInitializedAsync()
@@ -35,6 +37,21 @@ namespace MathLearnerWasmApp.Pages
             }
 
             IsGridLoading = false;
+        }
+
+        public virtual async Task DeleteEntity(TEntity entity)
+        {
+            var isDeleted = await Service!.Delete(entity);
+
+            if (isDeleted)
+            {
+                Snackbar!.Add($"Successfully deleted {EntityName.ToLower()}", Severity.Success);
+                await RefreshData();
+            }
+            else
+            {
+                Snackbar!.Add($"There was an error deleting {EntityName.ToLower()}", Severity.Error);
+            }
         }
 
         protected bool IsActionDisabled()

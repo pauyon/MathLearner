@@ -51,10 +51,10 @@ namespace MathLearner.Api.Controllers
         }
 
         [HttpDelete("{id}")]
-        public async Task<ActionResult<List<Role>>> DeleteRole(Role role)
+        public async Task<ActionResult<bool>> DeleteRole(int id )
         {
-            await _unitOfWork.RoleRepository.Remove(role);
-            return Ok();
+            var result = await _unitOfWork.RoleRepository.Delete(id);
+            return Ok(result);
         }
     }
 }
