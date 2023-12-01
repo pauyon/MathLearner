@@ -65,24 +65,24 @@ namespace MathLearner.Api.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult<List<User>>> AddUser(User user)
+        public async Task<ActionResult<User>> AddUser(User user)
         {
-            await _unitOfWork.UserRepository.Add(user);
-            return Ok();
+            var result = await _unitOfWork.UserRepository.Add(user);
+            return Ok(result);
         }
 
         [HttpPut("{id}")]
         public async Task<ActionResult<List<User>>> UpdateUser(User user)
         {
-            await _unitOfWork.UserRepository.Update(user);
-            return Ok();
+            var result = await _unitOfWork.UserRepository.Update(user);
+            return Ok(result);
         }
 
         [HttpDelete("{id}")]
-        public async Task<ActionResult<List<User>>> DeleteUser(int id)
+        public async Task<ActionResult<bool>> DeleteUser(int id)
         {
-            await _unitOfWork.UserRepository.Delete(id);
-            return Ok();
+            var result = await _unitOfWork.UserRepository.Delete(id);
+            return Ok(result);
         }
     }
 }

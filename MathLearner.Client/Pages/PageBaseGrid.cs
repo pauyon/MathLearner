@@ -31,12 +31,16 @@ namespace MathLearnerWasmApp.Pages
         {
             IsGridLoading = true;
 
+            Snackbar!.Add($"Loading {EntityName.Pluralize().ToLower()}...", Severity.Info);
+
             if (Service != null)
             {
                 Items = await Service.GetAll();
             }
 
             IsGridLoading = false;
+
+            Snackbar!.Add($"Loaded {EntityName.Pluralize().ToLower()}", Severity.Success);
         }
 
         public virtual async Task DeleteEntity(TEntity entity)

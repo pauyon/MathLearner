@@ -1,0 +1,33 @@
+﻿@page "/application/users/details"
+@page "/application/users/details/{EntityId:int}"
+@inherits PageBaseDetails<User>
+
+<DetailsTemplate PageTitle="@PageTitle" IsPageLoading="@IsPageLoading">
+    <MainContent>
+        <MudGrid>
+            <MudItem xs="12" md="12" lg="12">
+                <MudForm>
+                    <MudTextField @bind-Value="Entity!.Username" Label="Username" Required="true" />
+                    <MudTextField @bind-Value="Entity!.Email" Label="Email" />
+                    <div class="d-flex">
+                        <MudCheckBox @bind-Checked="Entity.IsActive" Label="Is Active" />
+                    </div>
+                </MudForm>
+            </MudItem>
+        </MudGrid>
+    </MainContent>
+    <ButtonContent>
+        <MudStack Row AlignItems="AlignItems.End" Justify="Justify.FlexEnd">
+             <MudButton OnClick="@NavigateToGrid" Variant="Variant.Filled" Color="Color.Dark">@(IsSaved ? "Go Back" : "Cancel")</MudButton>
+             <MudButton OnClick="@InsertUpdate" Variant="Variant.Filled" Color="Color.Primary">@(IsNewEntity ? "Save" : "Update")</MudButton>
+         </MudStack>
+     </ButtonContent>
+ </DetailsTemplate>
+
+ @code {
+
+    private void NavigateToGrid()
+    {
+        NavigationManager!.NavigateTo($"/application/{typeof(Roles).Name.ToLower()}");
+    }
+}
