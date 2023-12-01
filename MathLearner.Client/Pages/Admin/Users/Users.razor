@@ -1,4 +1,4 @@
-﻿@page "/application/users"
+﻿@page "/admin/users"
 @inherits PageBaseGrid<User>
 
 <GridTemplate PageTitle="@PageTitle" IsPageLoading="@IsPageLoading">
@@ -26,6 +26,6 @@
 
     private void NavigateToCreateOrEdit(User? user)
     {
-        NavigationManager?.NavigateTo($"/application/users/details/{user?.Id}");
+        NavigationManager?.NavigateTo($"/admin/users/details/{user?.Id}");
     }
 }

@@ -1,5 +1,5 @@
-﻿@page "/application/users/details"
-@page "/application/users/details/{EntityId:int}"
+﻿@page "/admin/users/details)"
+@page "/admin/users/details/{EntityId:int}"
 @inherits PageBaseDetails<User>
 
 <DetailsTemplate PageTitle="@PageTitle" IsPageLoading="@IsPageLoading">
@@ -28,6 +28,6 @@
 
     private void NavigateToGrid()
     {
-        NavigationManager!.NavigateTo($"/application/{typeof(Roles).Name.ToLower()}");
+        NavigationManager!.NavigateTo($"/admin/{typeof(Roles).Name.ToLower()}");
     }
 }

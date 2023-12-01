@@ -57,7 +57,7 @@ namespace MathLearnerWasmApp.Pages
                 if (result != null)
                 {
                     Snackbar!.Add($"Successfully saved {EntityName.ToLower()}", Severity.Success);
-                    NavigationManager!.NavigateTo($"/application/{EntityName.Pluralize().ToLower()}");
+                    NavigationManager!.NavigateTo($"/admin/{EntityName.Pluralize().ToLower()}");
                 }
             }
             else

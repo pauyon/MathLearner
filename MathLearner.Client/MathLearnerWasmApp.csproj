@@ -7,9 +7,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="Pages\Application\Roles\RoleDetails.razor~RF9422284.TMP" />
-    <None Remove="Pages\Application\Roles\RoleDetails.razor~RF944052e.TMP" />
-    <None Remove="Pages\Application\Roles\RoleDetails.razor~RF9524763.TMP" />
+    <None Remove="Pages\Admin\Roles\RoleDetails.razor~RF9422284.TMP" />
+    <None Remove="Pages\Admin\Roles\RoleDetails.razor~RF944052e.TMP" />
+    <None Remove="Pages\Admin\Roles\RoleDetails.razor~RF9524763.TMP" />
     <None Remove="Pages\PageBase.cs~RFa9c0e9b.TMP" />
     <None Remove="Services\IService.cs~RF9f2c237.TMP" />
   </ItemGroup>

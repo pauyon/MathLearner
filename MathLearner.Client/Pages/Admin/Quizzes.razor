@@ -1,5 +1,5 @@
-﻿@page "/application/roles"
-@inherits PageBaseGrid<Role>
+﻿@page "/admin/quizzes"
+@inherits PageBaseGrid<Quiz>
 
 <GridTemplate PageTitle="@PageTitle" IsPageLoading="@IsPageLoading">
     <MainContent>
@@ -10,13 +10,12 @@
             <Columns>
                 <PropertyColumn Property="x => x.Id" />
                 <PropertyColumn Property="x => x.Name" />
-                <PropertyColumn Property="x => x.Description" />
-                <TemplateColumn Title="Active" SortBy="x => x.IsActive">
+                <TemplateColumn Title="Completed" SortBy="x => x.IsCompleted">
                     <CellTemplate>
-                        <ActiveChip IsActive="@context.Item.IsActive" />
+                        <ActiveChip IsActive="@context.Item.IsCompleted" TrueCustomLabel="Completed" FalseCustomLabel="Not Completed" />
                     </CellTemplate>
                 </TemplateColumn>
-                <GridCrudColumn TEntity="Role" EditCallback="NavigateToCreateOrEdit" DeleteCallback="DeleteEntity" IsDisabled="@IsActionDisabled()" />
+                <GridCrudColumn TEntity="Quiz" EditCallback="NavigateToCreateOrEdit" IsDisabled="@IsActionDisabled()" />
             </Columns>
         </MudDataGrid>
     </MainContent>
@@ -24,8 +23,8 @@
 
 @code {
 
-    private void NavigateToCreateOrEdit(Role? role)
+    private void NavigateToCreateOrEdit(Quiz? quiz)
     {
-        NavigationManager?.NavigateTo($"/application/roles/details/{role?.Id}");
+        NavigationManager?.NavigateTo($"/admin/quizzes/details/{quiz?.Id}");
     }
 }
