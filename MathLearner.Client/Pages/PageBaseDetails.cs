@@ -73,7 +73,6 @@ namespace MathLearnerWasmApp.Pages
                     Snackbar!.Add($"There was an issue updating {EntityName.ToLower()}", Severity.Error);
                 }
             }
-
         }
 
         protected bool IsActionDisabled()
