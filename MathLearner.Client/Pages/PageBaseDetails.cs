@@ -1,4 +1,5 @@
-﻿using MathLearnerWasmApp.Services;
+﻿using Humanizer;
+using MathLearnerWasmApp.Services;
 using Microsoft.AspNetCore.Components;
 using MudBlazor;
 
@@ -55,8 +56,8 @@ namespace MathLearnerWasmApp.Pages
 
                 if (result != null)
                 {
-                    IsSaved = true;
                     Snackbar!.Add($"Successfully saved {EntityName.ToLower()}", Severity.Success);
+                    NavigationManager!.NavigateTo($"/application/{EntityName.Pluralize().ToLower()}");
                 }
             }
             else
