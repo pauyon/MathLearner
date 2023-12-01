@@ -18,8 +18,8 @@
     </MainContent>
     <ButtonContent>
         <MudStack Row AlignItems="AlignItems.End" Justify="Justify.FlexEnd">
-            <MudButton OnClick="@NavigateToGrid" Variant="Variant.Filled" Color="Color.Dark">Cancel</MudButton>
-            <MudButton OnClick="@SaveUpdateEntity" Variant="Variant.Filled" Color="Color.Primary">Save</MudButton>
+            <MudButton OnClick="@NavigateToGrid" Variant="Variant.Filled" Color="Color.Dark">@(IsSaved ? "Go Back" : "Cancel")</MudButton>
+            <MudButton OnClick="@InsertUpdate" Variant="Variant.Filled" Color="Color.Primary">@(IsNewEntity ? "Save" : "Update")</MudButton>
         </MudStack>
     </ButtonContent>
 </DetailsTemplate>
@@ -29,29 +29,5 @@
     private void NavigateToGrid()
     {
         NavigationManager!.NavigateTo($"/application/{typeof(Roles).Name.ToLower()}");
-    }
-
-    private async Task SaveUpdateEntity()
-    {
-
-        if (IsNewEntity)
-        {
-            var result = await Service!.Add(Entity);
-
-            if (result != null)
-            {
-                NavigateToGrid();
-            }
-        }
-        else
-        {
-            var isSaved = await Service!.Update(Entity);
-
-            if (isSaved)
-            {
-                NavigateToGrid();
-            }
-        }
-
     }
 }

@@ -1,5 +1,6 @@
 ﻿using MathLearnerWasmApp.Services;
 using Microsoft.AspNetCore.Components;
+using MudBlazor;
 
 namespace MathLearnerWasmApp.Pages
 {
@@ -12,7 +13,10 @@ namespace MathLearnerWasmApp.Pages
         [Inject]
         public IService<TEntity>? Service { get; set; }
         protected TEntity Entity = new();
+        protected string EntityName;
         protected bool IsPageLoading;
+        protected bool IsSaved;
+
         protected bool IsNewEntity
         {
             get
@@ -23,7 +27,8 @@ namespace MathLearnerWasmApp.Pages
 
         public PageBaseDetails()
         {
-            PageTitle = typeof(TEntity).Name + " Details";
+            EntityName = typeof(TEntity).Name;
+            PageTitle = EntityName + " Details";
         }
 
         protected override async Task OnInitializedAsync()
@@ -43,16 +48,32 @@ namespace MathLearnerWasmApp.Pages
             IsPageLoading = false;
         }
 
-        public virtual async Task InsertUpdate(TEntity entity)
+        protected async Task InsertUpdate()
         {
             if (IsNewEntity)
             {
-                await Service!.Add(entity);
+                var result = await Service!.Add(Entity);
+
+                if (result != null)
+                {
+                    IsSaved = true;
+                    Snackbar!.Add($"Successfully saved {EntityName.ToLower()}", Severity.Success);
+                }
             }
             else
             {
-                await Service!.Update(entity);
+                IsSaved = await Service!.Update(Entity);
+
+                if (IsSaved)
+                {
+                    Snackbar!.Add($"Successfully updated {EntityName.ToLower()}", Severity.Success);
+                }
+                else
+                {
+                    Snackbar!.Add($"There was an issue updating {EntityName.ToLower()}", Severity.Error);
+                }
             }
+
         }
 
         protected bool IsActionDisabled()

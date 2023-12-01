@@ -10,6 +10,7 @@
     <None Remove="Pages\Application\Roles\RoleDetails.razor~RF9422284.TMP" />
     <None Remove="Pages\Application\Roles\RoleDetails.razor~RF944052e.TMP" />
     <None Remove="Pages\Application\Roles\RoleDetails.razor~RF9524763.TMP" />
+    <None Remove="Services\IService.cs~RF9f2c237.TMP" />
   </ItemGroup>
 
   <ItemGroup>
