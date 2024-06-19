@@ -3,22 +3,22 @@
 <PageTitle> Math Learner | @PageTitle</PageTitle>
 
 <MudContainer MaxWidth="MaxWidth.Medium">
-    <MudGrid>
-        <MudItem Class="mt-6" xs="12" md="12" lg="12">
-            <MudText Typo="Typo.h4">@PageTitle</MudText>
-        </MudItem>
-        @if (MainContent != null)
-        {
-            @if (!IsPageLoading)
+    @if (IsPageLoading)
+    {
+        <LoadingPage />
+    }
+    else
+    {
+        <MudGrid>
+            <MudItem Class="mt-6" xs="12" md="12" lg="12">
+                <MudText Typo="Typo.h4">@PageTitle</MudText>
+            </MudItem>
+            @if (MainContent != null)
             {
                 <MudItem xs="12" md="12" lg="12">
                     @MainContent
                 </MudItem>
             }
-            else
-            {
-                <MudProgressLinear Indeterminate="true" Color="Color.Primary" />
-            }
-        }
-    </MudGrid>
+        </MudGrid>
+    }
 </MudContainer>

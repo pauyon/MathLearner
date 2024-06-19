@@ -1,0 +1,43 @@
+﻿.center-container {
+    display:flex;
+   align-items:center;
+   min-height:100vh;
+   flex-direction:column;
+   justify-content:center;
+}
+
+.icon {
+    width: 400px;
+    height: 400px;
+    margin-top: 4px;
+}
+
+.mask {
+    background-color: rgba(89,74,226,1); /* defines the background color of the image */
+    mask: url(./images/logo.png) no-repeat center / contain;
+    -webkit-mask: url(./images/logo.png) no-repeat center / contain;
+}
+
+.animation-cycle {
+    animation: revealLogo 4s infinite, fadeOut 4s infinite;
+}
+
+@keyframes revealLogo {
+    0% {
+        clip-path: inset(100% 0 0 0); /* Start with fully clipped except bottom */
+    }
+
+    90% {
+        clip-path: inset(0 0 0 0); /* Fully reveal the background */
+    }
+}
+
+@keyframes fadeOut {
+    0%,90% {
+        opacity: 1; /* Start with full opacity */
+    }
+
+    100% {
+        opacity: 0; /* Fade out to transparent */
+    }
+}

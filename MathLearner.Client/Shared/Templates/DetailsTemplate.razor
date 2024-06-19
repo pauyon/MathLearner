@@ -3,34 +3,34 @@
 <PageTitle> Math Learner | @PageTitle</PageTitle>
 
 <MudContainer MaxWidth="MaxWidth.Medium">
-    <MudGrid>
-        <MudItem Class="mt-6" xs="12" md="12" lg="12">
-            <MudText Typo="Typo.h4">@PageTitle</MudText>
-        </MudItem>
-        @if (MainContent != null)
-        {
-            <MudItem xs="12" md="12" lg="12">
-                @if (!IsPageLoading)
-                {
-                    <MudCard>
-                        <MudCardContent>
-                            @MainContent
-                        </MudCardContent>
-                    </MudCard>
-                }
-                else
-                {
-                    <MudProgressLinear Indeterminate="true" Color="Color.Primary" />
-                }
+    @if (IsPageLoading)
+    {
+        <LoadingPage />
+    }
+    else
+    {
+        <MudGrid>
+            <MudItem Class="mt-6" xs="12" md="12" lg="12">
+                <MudText Typo="Typo.h4">@PageTitle</MudText>
             </MudItem>
-        }
-        @if (ButtonContent != null)
-        {
-            <MudItem xs="12" md="12" lg="12">
-                @ButtonContent
-            </MudItem>
-        }
-    </MudGrid>
+            @if (MainContent != null)
+            {
+                <MudItem xs="12" md="12" lg="12">
+                        <MudCard>
+                            <MudCardContent>
+                                @MainContent
+                            </MudCardContent>
+                        </MudCard>
+                </MudItem>
+            }
+            @if (ButtonContent != null)
+            {
+                <MudItem xs="12" md="12" lg="12">
+                    @ButtonContent
+                </MudItem>
+            }
+        </MudGrid>
+    }
 </MudContainer>
 
 @code {
